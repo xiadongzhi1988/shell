@@ -1,12 +1,4 @@
 #!/bin/bash
-##############################################################
-# File Name: oldboyedu.sh
-# Version: V1.0
-# Author: zhang yao
-# Organization: www.oldboyedu.com
-# Created Time : 2017-06-05 08:29:52
-# Description: 
-##############################################################
 
 name=oldboy
 passWord=123456
@@ -25,7 +17,7 @@ while true
 		break
 	else
 	  echo "身份认证失败，请重试！"
-	  
+
 	  for i in `seq -w 10 -1 1`
         do
           echo -ne "\b\b$i";
@@ -33,9 +25,3 @@ while true
       done
 	fi
 done
-
-
-
-
-
-

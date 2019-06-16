@@ -1,8 +1,4 @@
 #!/bin/bash
-# 查看网卡流量速率
-# 作者：Mervin 李东全
-# 时间：2014-02-12
-
 # 使用以下命令实现自动刷新
 # watch -n 0 ./nw_flow.sh
 # watch -n 0 ./linuxidc.sh em1
@@ -28,9 +24,9 @@ TXnext=$(ifconfig ${eth} | grep bytes | awk '{print $6}' | awk -F":" '{print $2}
 
 
 
-# 1 byte = 8 bit 
-# 1 KB = 1024 bytes =210 bytes 
-# 1 MB = 1024 KB = 220 bytes 
+# 1 byte = 8 bit
+# 1 KB = 1024 bytes =210 bytes
+# 1 MB = 1024 KB = 220 bytes
 # 1 GB = 1024 MB = 230 bytes
 ((rx=(${RXnext}-${RXpre})*8))
 #echo $rx

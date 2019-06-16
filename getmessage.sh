@@ -1,7 +1,5 @@
 #/bin/bash
 
-
-
 case "$1" in
 computer)
 dmidecode | grep "Product Name"
