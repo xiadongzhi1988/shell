@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/local/bin/sendEmail -f g_lee0916@126.com -t 22654481@qq.com -s smtp.126.com:25 -xu g_lee0916 -xp ybbhlkg1dddf -u "MHA Waring" -m "YOUR MHA MAY BE FAILOVER" &>/tmp/sendmail.log

@@ -1,0 +1,10 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+172.16.1.41 backup
+172.16.1.31 nfs01
+172.16.1.5 lb01
+172.16.1.6 lb02
+172.16.1.7 web02
+172.16.1.8 web01
+172.16.1.51 db01
+172.16.1.61 m01

@@ -1,0 +1,72 @@
+#!/bin/bash
+# chkconfig: 2345 64 36
+# description: manager nginxd server.
+
+# Source function library.
+. /etc/init.d/functions
+
+nginxCmd=/application/nginx/sbin/nginx
+prog=nginx
+nginxPid=`netstat -lntp |grep $prog |grep -v ::: |awk -F '[ /]+' '{print $7}'`
+pidfile=/var/run/nginx.pid
+lockfile=/var/lock/subsys/nginxd
+RETVAL=0
+
+function Msg(){
+  if [ $? -eq 0 ];then
+    action "$1" /bin/true
+  else
+    action "$1" /bin/false
+  fi
+}
+
+
+start(){
+  [ -x $nginxCmd ] || exit 5
+  $nginxCmd &> /dev/null
+  RETVAL=$?
+  [ $RETVAL = 0 ] && \
+  touch ${lockfile}
+  echo $nginxPid > $pidfile
+  Msg "Starting $prog:"
+  return $RETVAL
+}
+
+stop(){
+  $nginxCmd -s stop &> /dev/null
+  RETVAL=$?
+  [ $RETVAL = 0 ] && \
+  rm -f ${lockfile}
+  rm -f ${pidfile}
+  Msg "Stopping $prog:"
+  return $RETVAL
+}
+
+rh_status() {
+ status $prog
+}
+ 
+rh_status_q() {
+ rh_status >/dev/null 2>&1
+}
+
+case "$1" in
+start)
+  rh_status_q && exit 0
+  [ -f ${lockfile} ] && exit 0
+  [ -f ${pidfile} ] && exit 0
+  $1
+  ;;
+stop)
+  rh_status_q || exit 0
+  [ -f ${lockfile} ] || exit 0
+  [ -f ${pidfile} ] || exit 0
+  $1
+  ;;
+status)
+   rh_status
+  ;;
+*)
+  echo "Usage: $0 {start|stop|status|restart}"
+  exit 2
+esac

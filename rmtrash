@@ -1,0 +1,7 @@
+#!/bin/bash
+#linux trash
+#alias rm='rmtrash'
+#        /bin/rmtrash
+if [ $# -ne 0 ];then
+/bin/mv $@ /tmp/
+fi

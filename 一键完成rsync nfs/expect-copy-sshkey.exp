@@ -1,0 +1,25 @@
+#!/usr/bin/expect
+###### 非交互式给一台机器发秘钥 ##############
+if { $argc != 1 } {
+ send_user "usage: expect expect-copy-sshkey.exp host \n"
+ exit
+}
+
+#define var
+set host [lindex $argv 0]
+set password "123456"
+
+spawn ssh-copy-id -i /root/.ssh/id_dsa.pub "root@$host"
+#spawn ssh -p 50718 disdata@$host /sbin/ifconfig
+set timeout 60
+expect {
+        -timeout 20
+        "yes/no"    {send "yes\r";exp_continue}
+        "*password" {send "$password\r"}
+        timeout  {puts "expect connect timeout,pls contact oldboy."; return}
+}
+expect eof
+
+exit -onexit {
+  send_user "Oldboy say good bye to you!\n"
+}

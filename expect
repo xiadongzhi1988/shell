@@ -1,0 +1,56 @@
+#!/bin/bash
+user=root
+pass='123456'
+ip='10.0.0.8'
+expect -c "
+    spawn ssh $user@$ip
+    expect {
+        \"(yes/no)\" {send \"yes\r\"; exp_continue}
+        \"password:\" {send \"$pass\r\"; exp_continue}
+        \"root@*\" {send \"df -h\r exit\r\"; exp_continue}
+    }"
+
+	
+
+#!/bin/bash
+host='10.0.0.8'
+user=root
+pass='123456'
+
+expect -c "
+    spawn ssh $user@$host
+    expect {
+        \"(yes/no)\" {send \"yes\r\"; exp_continue}
+        \"password:\" {send \"$pass\r\"}
+    }
+interact
+"
+
+
+
+#!/bin/bash
+host='10.0.0.8'
+user=root
+pass='123456'
+
+expect -c "
+    spawn ssh $user@$host
+    expect {
+        \"(yes/no)\" {send \"yes\r\"; exp_continue}
+        \"password:\" {send \"$pass\r\"; exp_continue}
+        \"root@*\" {send \"df -h\r\"}
+    }
+interact
+"
+
+
+
+
+
+
+
+
+
+
+
+
