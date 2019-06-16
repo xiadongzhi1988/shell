@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-i = 1
 from pyquery import PyQuery as pq
+i = 1
 file = open("url.txt")
 count = len(open("url.txt").readlines())
 while i<=count:

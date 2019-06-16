@@ -59,7 +59,7 @@ function ConfigIP(){
 # Defined Yum source Functions
 function yum(){
 	YumDir=/etc/yum.repos.d
-	[ -f "$YumDir/CentOS-Base.repo" ] && cp $YumDir/CentOS-Base.repo{,.ori} 
+	[ -f "$YumDir/CentOS-Base.repo" ] && cp $YumDir/CentOS-Base.repo{,.ori}
 	wget -O $YumDir/CentOS-Base.repo http://$Ip:$Port/$ConfigDir/CentOS-Base.repo &>/dev/null &&\
 	wget -O $YumDir/epel.repo http://$Ip:$Port/$ConfigDir/epel.repo &>/dev/null &&\
         wget -O $YumDir/oldboyedu.repo http://$Ip:$Port/$ConfigDir/oldboyedu.repo &>/dev/null
@@ -130,7 +130,7 @@ function hosts(){
 # Defined System Startup Services Functions
 function boot(){
 	for oldboy in `chkconfig --list|grep "3:on"|awk '{print $1}'|grep -vE "crond|network|rsyslog|sshd|sysstat"`
-	  do 
+	  do
 	   chkconfig $oldboy off
 	done
 	Msg "BOOT config"
@@ -154,7 +154,7 @@ function main(){
 	kernel
 	hosts
 	boot
-	Time		
+	Time
 }
 
 main
