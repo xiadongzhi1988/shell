@@ -6,9 +6,11 @@
 $PS1
 ```
 \$PS2
-### **在shell脚本中，用来读取文件内各个域的内容并将其赋值给shell变量的命令是______**
+### 在shell脚本中，用来读取文件内各个域的内容并将其赋值给shell变量的命令是______
 fold
+
 join
+
 tr
 ```
 read
@@ -18,17 +20,22 @@ read
 A：&
 ```
 B：@
+
 C：#
+
 D：$
 ### 不是shell具有的功能和特点是（）
 A：管道
+
 B：输入输出重定向
+
 C：执行后台进程
 ```
 D：处理程序命令
 ```
 ### 退出交互模式的shell，应键入（）
-A：<Esc>
+A：\<Esc>
+
 B：^q
 ```
 C：exit
@@ -39,19 +46,26 @@ D：quit
 bash
 ```
 ruby
+
 PHP
+
 perl
 ### 以下函数中，和其他函数不属于一类的是
 read
+
 pread
+
 write
+
 pwrite
+
 fseek
 ```
 lseek
 ```
 ### 下列变量名中有效的shell变量名是:______
 -2-time
+
 _2$3
 ```
 trust_no_1
@@ -59,6 +73,7 @@ trust_no_1
 2004file
 ### 下列对shell变量FRUTT操作，正确的是______
 为变量赋值：$FRUTT=apple
+
 显示变量的值：fruit=apple
 ```
 显示变量的值：echo $FRUTT
@@ -66,6 +81,7 @@ trust_no_1
 判断变量是否有值: [-f - - FRUTT || ]
 ### 在shell编程中关于$2的描述正确的是
 程序后携带了两个位数参数
+
 宏替换
 ```
 程序后面携带的第二个位置参数
@@ -73,6 +89,7 @@ trust_no_1
 携带位置参数的个数
 ### 在shell环境下想把‘gyyx’值赋给变量company，下面哪个是正确的
 company = gyyx
+
 $company=gyyx
 ```
 company='gyyx'
@@ -80,7 +97,9 @@ company=gyyx
 ```
 ### 下面sed删除行，下面哪个脚本是错误的是
 sed -e '/man/d' filename
+
 sed -e '1,3d' filename
+
 sed -e '1,/man/d' filename
 ```
 sed -e '/man/3d' filename
@@ -96,11 +115,15 @@ $$表示程序的PID
 for filename in (ls)do cat filename done
 ```
 for((i=0;i<10;i++)) do echo \$i done
+
 x=1 sum=0 while [ x -le 10 ] do let sum=sum+x let x=x+1 done echo \$sum
+
 for i in 1 2 3 4 5 do echo i done
 ### 在shell脚本中，用来读取文件内各个域的内容并将其赋值给shell变量的命令是
 fold
+
 join
+
 tr
 ```
 read
@@ -111,10 +134,13 @@ break
 continue
 ```
 exit
+
 kill
 ### shell脚本中的注释符
 //
+
 /**/
+
 " "
 ```
 #
@@ -124,7 +150,9 @@ kill
 -x
 ```
 -u
+
 -f
+
 -p
 ### 以下命令执行后，结果为（）
 ```
@@ -133,13 +161,16 @@ var2=abcded
 echo "var1"|grep -q "var2" && echo "yes" || echo "no"
 ```
 无结果
+
 语法错误
+
 yes
 ```
 no
 ```
 ### 在shell比较运算符中，数值测试“等于则为真”的是（）
 -ne
+
 -ge
 ```
 -eq
@@ -189,7 +220,7 @@ tree /var/log/ |awk 'END{print $3}'
 ```
 ### 写一个脚本实现判断192.168.1.0/24 网络里，当前在线的ip有哪些，能拼通则认为在
 ```bash
-#!/bin/sh
+#!/bin/bash
 CMD="ping -W 2 -c 2"
 Ip="192.168.1."
 for n in $(seq 254)
